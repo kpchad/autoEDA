@@ -17,11 +17,11 @@ print(df.describe())
 
 #print details of each feature
 for i in df.columns:
-    print('column ' + i + ' is of type:', df.ix[:,i].dtype)
-    print('number of nans in series:', sum(df.ix[:,i].isnull()))
+    print('feature ' + i + ' type:', df.ix[:,i].dtype)
+    print('number of nans:', sum(df.ix[:,i].isnull()))
     
 #drop all rows with nans
-df = df.dropna(axis=0).reset_index()
+df = df.dropna(axis=0).reset_index(drop=True)
 
 #replace all nans with zero
 #df = df.fillna(0)
